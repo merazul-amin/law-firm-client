@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
-import { toast } from 'react-toastify';
 import swal from 'sweetalert';
 
 const NavigationBar = () => {
@@ -10,8 +9,6 @@ const NavigationBar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-                // Sign-out successful.
-                // toast.success('Successfully Logged Out');
                 swal("Logged Out!", "", "success");
             }).catch((error) => {
                 // An error happened.

@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
-
 import swal from 'sweetalert';
 
 const LogIn = () => {
@@ -25,7 +24,7 @@ const LogIn = () => {
                 const user = userCredential.user;
                 console.log(user)
                 swal("Logged In!", "!", "success");
-                // ...
+
             })
             .catch((error) => {
                 const errorCode = error.code;
