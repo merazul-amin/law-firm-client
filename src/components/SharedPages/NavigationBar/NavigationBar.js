@@ -1,12 +1,40 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/UserContext/UserContext';
+import { toast } from 'react-toastify';
+import swal from 'sweetalert';
 
 const NavigationBar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                // Sign-out successful.
+                // toast.success('Successfully Logged Out');
+                swal("Logged Out!", "", "success");
+            }).catch((error) => {
+                // An error happened.
+            });
+    }
 
     const navItems = <>
         <li className='text-white font-bold hover:text-black'><Link to='/'>Home</Link></li>
-        <li className='text-white font-bold hover:text-black'><Link to='/login'>Log In</Link></li>
-        <li className='text-white font-bold hover:text-black'><Link to='/register'>Register</Link></li>
+
+        {
+            user ?
+                <>
+                    <li className='text-white font-bold hover:text-black'><Link>My Reviews</Link></li>
+                    <li className='text-white font-bold hover:text-black'><Link>Add Service</Link></li>
+                    <button onClick={handleLogOut} className='btn btn-secondary'>Log Out</button>
+                </>
+
+                :
+                <>
+                    <li className='text-white font-bold hover:text-black'><Link to='/login'>Log In</Link></li>
+                    <li className='text-white font-bold hover:text-black'><Link to='/register'>Register</Link></li>
+                </>
+        }
     </>
     return (
         <div>
