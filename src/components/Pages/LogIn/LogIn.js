@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 const LogIn = () => {
-
-
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    let navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -14,6 +15,8 @@ const LogIn = () => {
     const onSubmit = (details) => {
         const { email, password } = details;
         console.log(email, password);
+
+        // navigate(from, { replace: true });
     }
     return (
         <div>
