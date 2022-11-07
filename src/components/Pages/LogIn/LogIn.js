@@ -19,7 +19,7 @@ const LogIn = () => {
         <div>
             <div className="hero">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full  max-w-xl shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
                             <div className="form-control">
