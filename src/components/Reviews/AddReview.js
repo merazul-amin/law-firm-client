@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/UserContext/UserContext';
 import { useForm } from 'react-hook-form';
+import swal from 'sweetalert';
 
 const AddReview = ({ service }) => {
     const { _id } = service;
@@ -35,7 +36,11 @@ const AddReview = ({ service }) => {
             body: JSON.stringify(review)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data.acknowledged) {
+                    swal("Review Saved!", "!", "success");
+                }
+            })
     }
     return (
         <div>
