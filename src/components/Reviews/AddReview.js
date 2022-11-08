@@ -13,11 +13,13 @@ const AddReview = ({ service }) => {
 
 
 
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const name = form.name.value;
+        const img = form.img.value;
         const reviewText = form.review.value;
 
         //now set this review in db with servicer id
@@ -25,6 +27,7 @@ const AddReview = ({ service }) => {
             email,
             name,
             reviewText,
+            img,
             serviceId: _id
         }
 
@@ -53,6 +56,9 @@ const AddReview = ({ service }) => {
 
                 <h2>Your Email</h2>
                 <input name='email' type="email" required defaultValue={userEmail ? userEmail : 'Enter Your Email Here.'} placeholder="Type here" className="input input-bordered input-secondary w-full max-w-xs" />
+
+                <h2>Your Photo Link</h2>
+                <input name='img' type="text" required defaultValue={userImg ? userImg : 'Enter Img link Here.'} placeholder="Type here" className="input input-bordered input-secondary w-full max-w-xs" />
 
                 <h2>Your Review</h2>
                 <textarea name='review' className="textarea w-[95%] lg:w-[50%] textarea-secondary" placeholder="Your Review Here"></textarea> <br />

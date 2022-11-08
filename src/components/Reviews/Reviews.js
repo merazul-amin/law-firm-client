@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/UserContext/UserContext';
+import SingleReview from './SingleReview';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
@@ -9,11 +10,19 @@ const Reviews = () => {
     const userImg = user?.photoURL;
 
     useEffect(() => {
-
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json())
+            .then(data => setReviews(data))
     }, [])
+    console.log(reviews);
     return (
         <div>
             <h1>Reviews</h1>
+            <div>
+                {
+                    reviews.map(review => <SingleReview key={review._id}></SingleReview>)
+                }
+            </div>
 
         </div>
     );

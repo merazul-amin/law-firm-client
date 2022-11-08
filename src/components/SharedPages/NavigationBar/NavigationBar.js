@@ -5,7 +5,6 @@ import swal from 'sweetalert';
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
-    console.log(user)
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -23,7 +22,7 @@ const NavigationBar = () => {
         {
             user ?
                 <>
-                    <li className='text-white font-bold hover:text-black'><Link>My Reviews</Link></li>
+                    <li className='text-white font-bold hover:text-black'><Link to='/userReviews'>My Reviews</Link></li>
                     <li className='text-white font-bold hover:text-black'><Link>Add Service</Link></li>
                     <div className="avatar mx-3 cursor-pointer">
                         <div className="h-12 rounded-full">
