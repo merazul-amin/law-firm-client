@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
-
+import { Helmet } from "react-helmet";
 const Register = () => {
     const { user, createUser, setUserInfo, setUpdateUser, updateUser } = useContext(AuthContext);
 
@@ -32,6 +32,9 @@ const Register = () => {
 
     return (
         <div className="hero">
+            <Helmet>
+                <title>Register</title>
+            </Helmet>
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">

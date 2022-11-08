@@ -25,7 +25,7 @@ const NavigationBar = () => {
             user ?
                 <>
                     <li className='text-white font-bold hover:text-black'><Link to='/userReviews'>My Reviews</Link></li>
-                    <li className='text-white font-bold hover:text-black'><Link>Add Service</Link></li>
+                    <li className='text-white font-bold hover:text-black'><Link to='/addService'>Add Service</Link></li>
                     <div className="avatar mx-3 cursor-pointer">
                         <div className="h-12 rounded-full">
                             {

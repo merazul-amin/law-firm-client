@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/UserContext/UserContext';
 import SingleReview from './SingleReview';
-
+import { Helmet } from "react-helmet";
 const UserReviews = () => {
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
@@ -28,6 +28,9 @@ const UserReviews = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>My Reviews</title>
+            </Helmet>
             <h1>User Reviews</h1>
             <div className='grid grid-cols-1 lg:grid-cols-2'>
                 {

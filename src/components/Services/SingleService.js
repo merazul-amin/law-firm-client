@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { Helmet } from "react-helmet";
 
 const SingleService = ({ service }) => {
     const { name, img, _id } = service;
     return (
         <div>
+
             <PhotoProvider>
                 <div className="card w-[90%] mx-auto bg-base-100 shadow-xl text-center my-10">
                     <PhotoView src={img}>

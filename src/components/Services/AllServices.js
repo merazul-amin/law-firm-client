@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SingleService from './SingleService';
-
+import { Helmet } from "react-helmet";
 const AllServices = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
@@ -10,6 +10,9 @@ const AllServices = () => {
     }, [])
     return (
         <div>
+            <Helmet>
+                <title>Home and Services</title>
+            </Helmet>
             <h1>All Services</h1>
             <div className='grid grid-cols-1 lg:grid-cols-3'>
                 {

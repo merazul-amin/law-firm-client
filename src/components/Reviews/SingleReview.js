@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SingleReview = ({ review, children }) => {
-    console.log(children)
+
     const { img, email, name, reviewText } = review;
     return (
         <div className='w-[90%] mx-auto'>
