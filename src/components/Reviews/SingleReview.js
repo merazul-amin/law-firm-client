@@ -1,6 +1,7 @@
 import React from 'react';
 
-const SingleReview = ({ review }) => {
+const SingleReview = ({ review, children }) => {
+    console.log(children)
     const { img, email, name, reviewText } = review;
     return (
         <div className='w-[90%] mx-auto'>
@@ -59,11 +60,18 @@ const SingleReview = ({ review }) => {
 
 
                             </div>
+
                         </div>
                         <div className="w-full md:w-1/3 text-right">
                             <p className="mb-8 text-sm text-gray-300">Added 2 months ago</p>
+
                         </div>
                     </div>
+                </div>
+                <div className='text-center mb-3'>
+                    {
+                        children && children
+                    }
                 </div>
             </div>
         </div>

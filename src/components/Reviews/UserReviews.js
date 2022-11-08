@@ -17,12 +17,24 @@ const UserReviews = () => {
             .then(data => setReviews(data))
     }, [email])
     console.log(reviews);
+
+    const handleDelete = () => {
+        console.log('clicked')
+    }
+
+    const handleUpdate = () => {
+        console.log('clicked')
+    }
+
     return (
         <div>
             <h1>User Reviews</h1>
             <div className='grid grid-cols-1 lg:grid-cols-2'>
                 {
-                    reviews.map(review => <SingleReview review={review} key={review._id}></SingleReview>)
+                    reviews.map(review => <SingleReview review={review} key={review._id}>
+                        <button onClick={() => handleDelete()} className='btn btn-error' >Delete</button>
+                        <button onClick={() => handleUpdate()} className='btn btn-success mx-3'>Update</button>
+                    </SingleReview>)
                 }
             </div>
         </div>
