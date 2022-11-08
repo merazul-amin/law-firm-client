@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AddReview from '../Reviews/AddReview';
 import Reviews from '../Reviews/Reviews';
+import SingleReview from '../Reviews/SingleReview';
 
 const ServiceDetails = () => {
     const service = useLoaderData();
-    console.log(service);
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews/${service?._id}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [service]);
+    console.log(reviews);
+
     return (
         <div>
             {/* Service Details */}
@@ -15,7 +24,10 @@ const ServiceDetails = () => {
 
             {/* Reviews Section */}
             <div>
-                <Reviews></Reviews>
+                {
+                    reviews.map(review => <SingleReview review={review} key={review._id}></SingleReview>)
+                }
+                {/* <Reviews></Reviews> */}
             </div>
 
             {/* Add Review Section */}

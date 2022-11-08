@@ -14,13 +14,12 @@ const Reviews = () => {
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
-    console.log(reviews);
     return (
         <div>
             <h1>Reviews</h1>
             <div>
                 {
-                    reviews.map(review => <SingleReview key={review._id}></SingleReview>)
+                    reviews.map(review => <SingleReview review={review} key={review._id}></SingleReview>)
                 }
             </div>
 

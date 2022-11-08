@@ -10,9 +10,9 @@ const UserReviews = () => {
 
     //now get user reviews
 
-    useEffect(() => {
-        fetch()
-    }, [])
+    // useEffect(() => {
+    //     fetch()
+    // }, [])
     return (
         <div>
             <h1>User Reviews</h1>

@@ -10,10 +10,6 @@ const AddReview = ({ service }) => {
     const userEmail = user?.email;
     const userImg = user?.photoURL;
 
-
-
-
-
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = e.target;
