@@ -3,7 +3,7 @@ import React from 'react';
 const SingleReview = ({ review }) => {
     const { img, email, name, reviewText } = review;
     return (
-        <div className='w-[90%] mx-auto my-10'>
+        <div className='w-[90%] mx-auto'>
 
             <div className="mb-2 shadow-lg border rounded-lg rounded-b-5xl overflow-hidden">
                 <div className="pt-3 pb-3 md:pb-1 px-4 md:px-16 bg-white bg-opacity-40">

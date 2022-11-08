@@ -6,7 +6,7 @@ const Footer = () => {
         <div>
             <footer className="footer footer-center p-1 text-base-content rounded" style={{ backgroundColor: '#0B3D60' }}>
                 <div className="grid grid-flow-col gap-4 text-white font-bold">
-                    <Link className="link link-hover">About us</Link>
+                    <Link className="link link-hover">About Me</Link>
                     <Link className="link link-hover">Contact</Link>
                     <Link className="link link-hover">Jobs</Link>
                     <Link className="link link-hover">Press kit</Link>
@@ -19,7 +19,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div>
-                    <p className='text-white'>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
+                    <p className='text-white'>Copyright © 2027 - All right reserved by Law Firm.</p>
                 </div>
             </footer>
         </div>
