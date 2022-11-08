@@ -23,9 +23,13 @@ const ServiceDetails = () => {
             </div>
 
             {/* Reviews Section */}
-            <div>
+            <div className='grid grid-cols-1 lg:grid-cols-2'>
                 {
-                    reviews.map(review => <SingleReview review={review} key={review._id}></SingleReview>)
+                    reviews.length > 0 ?
+
+                        reviews.map(review => <SingleReview review={review} key={review._id}></SingleReview>)
+                        :
+                        <h1 className='text-center text-6xl my-10'>No Review's Available for this service.</h1>
                 }
                 {/* <Reviews></Reviews> */}
             </div>

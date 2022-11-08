@@ -63,7 +63,7 @@ const AddReview = ({ service }) => {
                     <button type='submit' className='btn'>Add Review</button>
                 </form>
                     :
-                    <h1 className='text-2xl text-center my-5'>Please Log in for Give a Review <Link to='/login' className='text-red-600 font-bold underline'>Log In</Link> </h1>
+                    <h1 className='text-2xl text-center my-10'>Please Log in for Give a Review <Link to='/login' className='text-red-600 font-bold underline'>Log In</Link> </h1>
             }
 
         </div>

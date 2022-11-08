@@ -12,8 +12,8 @@ const Services = () => {
     }, [])
     return (
         <div className='my-10'>
-            <h1 className='text-5xl font-bold text-center'>Services</h1>
-            <div>
+            <h1 className='text-5xl font-bold text-center'>I am Effective In <br /> Such Areas Of Practices.</h1>
+            <div className='grid grid-cols-1 lg:grid-cols-3'>
                 {
                     services.map(service => <SingleService service={service} key={service.serial}></SingleService>)
                 }
