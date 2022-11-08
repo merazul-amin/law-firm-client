@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
 
 const Register = () => {
-    const { user, createUser, setUserInfo } = useContext(AuthContext);
+    const { user, createUser, setUserInfo, setUpdateUser, updateUser } = useContext(AuthContext);
 
     const {
         register,
@@ -20,7 +20,7 @@ const Register = () => {
                 const user = res.user;
                 setUserInfo(name, photoUrl)
                     .then(() => {
-                        console.log('profile updated')
+                        setUpdateUser(!updateUser)
                     }).catch((error) => {
                         // An error occurred
                         // ...

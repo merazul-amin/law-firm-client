@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
 import swal from 'sweetalert';
+import { HiUser, IconName } from "react-icons/hi";
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -13,6 +14,7 @@ const NavigationBar = () => {
                 // An error happened.
             });
     }
+    console.log(user)
 
     const navItems = <>
         <li className='text-white font-bold hover:text-black'><Link to='/'>Home</Link></li>
@@ -30,7 +32,8 @@ const NavigationBar = () => {
                                 user?.photoURL ?
                                     <img title={user?.displayName ? user?.displayName : 'No Name'} alt='/' src={user?.photoURL} />
                                     :
-                                    <></>
+                                    <>
+                                    </>
                             }
                         </div>
                     </div>
