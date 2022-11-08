@@ -50,16 +50,16 @@ const AddReview = ({ service }) => {
                     <h1 className='text-center text-3xl font-bold'>Write A Review</h1>
 
                     <h2>Your Name</h2>
-                    <input type="text" name='name' required defaultValue={userName ? userName : 'Enter Your Name Here'} placeholder="Type here" className="input input-bordered input-secondary w-full max-w-xs" />
+                    <input type="text" name='name' required defaultValue={userName ? userName : ''} placeholder="Type here" className="input input-bordered input-secondary w-full max-w-xs" />
 
                     <h2>Your Email</h2>
-                    <input name='email' type="email" required defaultValue={userEmail ? userEmail : 'Enter Your Email Here.'} placeholder="Type here" className="input input-bordered input-secondary w-full max-w-xs" />
+                    <input name='email' type="email" required defaultValue={userEmail ? userEmail : ''} placeholder="Type here" className="input input-bordered input-secondary w-full max-w-xs" />
 
                     <h2>Your Photo Link</h2>
-                    <input name='img' type="text" required defaultValue={userImg ? userImg : 'Enter Img link Here.'} placeholder="Type here" className="input input-bordered input-secondary w-full max-w-xs" />
+                    <input name='img' type="text" required defaultValue={userImg ? userImg : ''} placeholder="Type here" className="input input-bordered input-secondary w-full max-w-xs" />
 
                     <h2>Your Review</h2>
-                    <textarea name='review' className="textarea w-[95%] lg:w-[50%] textarea-secondary" placeholder="Your Review Here"></textarea> <br />
+                    <textarea name='review' required className="textarea w-[95%] lg:w-[50%] textarea-secondary" placeholder="Your Review Here"></textarea> <br />
                     <button type='submit' className='btn'>Add Review</button>
                 </form>
                     :
