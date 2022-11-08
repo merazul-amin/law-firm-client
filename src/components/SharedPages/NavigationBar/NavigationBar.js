@@ -18,6 +18,7 @@ const NavigationBar = () => {
     const navItems = <>
         <li className='text-white font-bold hover:text-black'><Link to='/'>Home</Link></li>
         <li className='text-white font-bold hover:text-black'><Link to='/services'>Services</Link></li>
+        <li className='text-white font-bold hover:text-black'><Link to='/blogs'>Blogs</Link></li>
 
         {
             user ?

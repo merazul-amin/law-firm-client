@@ -3,6 +3,7 @@ import {
     RouterProvider,
     Route,
 } from "react-router-dom";
+import Blogs from "../components/Pages/Blogs/Blogs";
 import Home from "../components/Pages/Home/Home";
 import LogIn from "../components/Pages/LogIn/LogIn";
 import Register from "../components/Pages/Register/Register";
@@ -23,7 +24,8 @@ const routes = createBrowserRouter([
                 path: '/services/:id',
                 element: <ServiceDetails></ServiceDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
-            }
+            },
+            { path: '/blogs', element: <Blogs></Blogs> }
         ]
     }
 ]);
