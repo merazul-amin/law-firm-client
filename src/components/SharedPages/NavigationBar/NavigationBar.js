@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
 import swal from 'sweetalert';
-import { HiUser, IconName } from "react-icons/hi";
+import { FaBalanceScaleRight, IconName } from "react-icons/fa";;
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -50,7 +50,8 @@ const NavigationBar = () => {
     return (
         <div>
             <div className="navbar" style={{ backgroundColor: '#0B3D60' }}>
-                <div className="navbar-start">
+                <div className="navbar-start flex justify-between lg:block w-[100%]">
+
                     <div className="dropdown text-white">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -59,8 +60,9 @@ const NavigationBar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl text-white">Law Firm</a>
+                    <Link to='/' className="btn btn-ghost normal-case text-3xl text-white"><FaBalanceScaleRight className='mr-3 text-3xl'></FaBalanceScaleRight> Law Firm</Link>
                 </div>
+
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
 
