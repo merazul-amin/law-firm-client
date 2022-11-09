@@ -54,7 +54,7 @@ const SingleReview = ({ review, children }) => {
                                                 <path d="M10.016 6.366H6.38V10.092H4.472V6.366H0.836V4.638H4.472V0.911999H6.38V4.638H10.016V6.366Z" fill="currentColor"></path>
                                             </svg>
                                         </div>
-                                        <span className="text-green-500 font-heading font-medium">battery life</span>
+                                        <span className="text-green-500 font-heading font-medium">Good</span>
                                     </div>
                                 </div>
 
