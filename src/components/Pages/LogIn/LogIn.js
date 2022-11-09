@@ -25,6 +25,27 @@ const LogIn = () => {
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
+                    console.log(user);
+                    const email = { email: user.email };
+
+
+                    //handle jwt token 
+
+                    fetch('http://localhost:5000/jwt', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(email)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data)
+                            localStorage.setItem('token', data.token);
+                        })
+
+
+
                     navigate(from, { replace: true });
                     swal("Logged In!", "!", "success");
 
@@ -38,6 +59,23 @@ const LogIn = () => {
         googleLogIn()
             .then(res => {
                 const user = res.user;
+
+                const email = { email: user.email };
+
+                //handle jwt token 
+
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(email)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        localStorage.setItem('token', data.token);
+                    })
             })
             .catch(err => console.log(err))
     }
