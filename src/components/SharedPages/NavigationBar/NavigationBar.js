@@ -14,7 +14,6 @@ const NavigationBar = () => {
                 // An error happened.
             });
     }
-    console.log(user)
 
     const navItems = <>
         <li className='text-white font-bold hover:text-black'><Link to='/'>Home</Link></li>

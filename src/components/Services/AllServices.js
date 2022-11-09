@@ -13,11 +13,11 @@ const AllServices = () => {
             <Helmet>
                 <title>Home and Services</title>
             </Helmet>
-            <h1>All Services</h1>
+            <h1 className='text-5xl text-center my-4'>All Services</h1>
             <div className='grid grid-cols-1 lg:grid-cols-3'>
                 {
 
-                    services.map(service => <SingleService service={service} key={service.serial}></SingleService>)
+                    services.map(service => <SingleService service={service} key={service._id}></SingleService>)
 
                 }
             </div>
