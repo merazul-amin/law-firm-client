@@ -3,12 +3,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
 import swal from 'sweetalert';
+import { FaGoogle, IconName } from "react-icons/fa";
 
 const LogIn = () => {
-    const { logIn } = useContext(AuthContext);
+    const { logIn, googleLogIn } = useContext(AuthContext);
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
     let navigate = useNavigate();
+
     const {
         register,
         handleSubmit,
@@ -17,22 +19,29 @@ const LogIn = () => {
 
     const onSubmit = (details) => {
         const { email, password } = details;
-        console.log(email, password);
-        logIn(email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                console.log(user)
-                swal("Logged In!", "!", "success");
 
+        if (email && password) {
+            logIn(email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    navigate(from, { replace: true });
+                    swal("Logged In!", "!", "success");
+
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(error);
+                });
+        }
+    }
+    const handleGoogleLogIn = () => {
+        googleLogIn()
+            .then(res => {
+                const user = res.user;
             })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(error);
-            });
-
-        // navigate(from, { replace: true });
+            .catch(err => console.log(err))
     }
     return (
         <div>
@@ -61,6 +70,10 @@ const LogIn = () => {
                             </div>
                             <div className="form-control">
                                 <button type='submit' className="btn btn-primary">Login</button>
+
+                                <button onClick={handleGoogleLogIn} className="btn btn-success my-3">
+                                    <FaGoogle className='text-white text-2xl mr-3'></FaGoogle>  Google</button>
+
                             </div>
                         </form>
                     </div>
