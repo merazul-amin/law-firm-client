@@ -10,12 +10,13 @@ const AddService = () => {
         const price = form.price.value;
         const img = form.img.value;
         const info = form.info.value;
-        console.log(name, price, img, info);
+        const date = new Date();
         const service = {
             name,
-            price,
+            price: `$${price}`,
             img,
-            info
+            info,
+            time: date.toLocaleString()
         }
 
 

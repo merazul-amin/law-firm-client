@@ -3,6 +3,7 @@ import React from 'react';
 const HomeBanner3 = () => {
     return (
         <div>
+            <h1 className='text-5xl text-center mt-7'>About Me:</h1>
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                 <div className="grid gap-5 row-gap-5 sm:grid-cols-2 lg:grid-cols-4">
                     <div className="px-12 text-center sm:px-0">

@@ -12,6 +12,9 @@ const AllServices = () => {
                 setServices(data)
                 setLoadingServices(false)
             })
+            .catch(err => {
+                setLoadingServices(false);
+            })
     }, [])
     return (
         <div>
@@ -21,9 +24,7 @@ const AllServices = () => {
             <h1 className='text-5xl text-center my-4'>All Services</h1>
             {
                 loadingServices ?
-
                     <Spinner></Spinner>
-
                     :
                     <div className='grid grid-cols-1 lg:grid-cols-3'>
                         {

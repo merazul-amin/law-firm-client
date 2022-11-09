@@ -1,22 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
 import { Helmet } from "react-helmet";
+import Spinner from '../../SharedPages/Spinner/Spinner';
 const Register = () => {
     const { user, createUser, setUserInfo, setUpdateUser, updateUser } = useContext(AuthContext);
+    const [display, setDisplay] = useState('hidden');
 
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm();
 
+
     const onSubmit = (details) => {
         const { email, name, password, photoUrl } = details;
-
+        setDisplay('flex');
         createUser(email, password)
             .then(res => {
+                setDisplay('hidden');
                 const user = res.user;
                 setUserInfo(name, photoUrl)
                     .then(() => {
@@ -38,12 +43,13 @@ const Register = () => {
                                 localStorage.setItem('token', data.token);
                             })
                     }).catch((error) => {
-                        // An error occurred
-                        // ...
+                        setDisplay('hidden');
                     });
 
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                setDisplay('hidden');
+            })
     }
 
     return (
@@ -51,6 +57,9 @@ const Register = () => {
             <Helmet>
                 <title>Register</title>
             </Helmet>
+            <div className={`absolute w-[100%] z-10 ${display}  justify-center align-middle`}>
+                <Spinner></Spinner>
+            </div>
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
