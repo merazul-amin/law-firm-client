@@ -8,6 +8,7 @@ const AddReview = ({ service, reload }) => {
     const { reloadReviews, setReloadReviews } = reload;
 
     const { user } = useContext(AuthContext);
+
     const userName = user?.displayName;
     const userEmail = user?.email;
     const userImg = user?.photoURL;

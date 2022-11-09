@@ -3,6 +3,7 @@ import { AuthContext } from '../../contexts/UserContext/UserContext';
 import SingleReview from './SingleReview';
 import { Helmet } from "react-helmet";
 import swal from 'sweetalert';
+import { Link } from 'react-router-dom';
 const UserReviews = () => {
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
@@ -25,7 +26,7 @@ const UserReviews = () => {
             headers: { token: localStorage.getItem('token') }
         })
             .then(res => {
-                console.log(res)
+
                 if (res.status === 401 || res.status === 403) {
                     setJwtMessage('Unauthorized User Access');
                 }
@@ -35,6 +36,8 @@ const UserReviews = () => {
                 setReviews(data)
             })
     }, [email, reload])
+
+
 
     const handleDelete = (id) => {
         fetch(`http://localhost:5000/userReviews/${id}`, {
@@ -49,9 +52,7 @@ const UserReviews = () => {
             })
     }
 
-    const handleUpdate = (id) => {
-        console.log(id)
-    }
+
 
     return (
         <div className='mb-96'>
@@ -67,8 +68,8 @@ const UserReviews = () => {
 
                             {
                                 reviews.map(review => <SingleReview review={review} key={review._id}>
-                                    <button onClick={() => handleDelete(review._id)} className='btn btn-error' >Delete</button>
-                                    <button onClick={() => handleUpdate(review._id)} className='btn btn-success mx-3'>Update</button>
+                                    <button onClick={() => handleDelete(review._id)} className='btn btn-error' >Delete Review</button>
+                                    <Link to={`/editReview/${review._id}`}> <button className='btn btn-success mx-3'>Edit Review</button></Link>
                                 </SingleReview>)
                             }
                         </div>
