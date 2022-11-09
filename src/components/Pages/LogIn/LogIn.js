@@ -25,12 +25,9 @@ const LogIn = () => {
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
-                    console.log(user);
                     const email = { email: user.email };
 
-
                     //handle jwt token 
-
                     fetch('http://localhost:5000/jwt', {
                         method: 'POST',
                         headers: {
@@ -40,11 +37,8 @@ const LogIn = () => {
                     })
                         .then(res => res.json())
                         .then(data => {
-                            console.log(data)
                             localStorage.setItem('token', data.token);
                         })
-
-
 
                     navigate(from, { replace: true });
                     swal("Logged In!", "!", "success");
@@ -73,7 +67,6 @@ const LogIn = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
                         localStorage.setItem('token', data.token);
                     })
             })

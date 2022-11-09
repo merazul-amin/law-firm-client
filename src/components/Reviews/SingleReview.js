@@ -3,7 +3,6 @@ import React from 'react';
 const SingleReview = ({ review, children }) => {
 
     const { img, email, name, reviewText, time } = review;
-    console.log(img);
     return (
         <div className='w-[90%] mx-auto'>
 

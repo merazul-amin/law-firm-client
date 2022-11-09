@@ -14,11 +14,23 @@ const UserReviews = () => {
     //this state for reload useEffect after delete a review.
     const [reload, setReload] = useState(false);
 
+    //jwt token error message
+    const [jwtMessage, setJwtMessage] = useState('');
+
     //now get user reviews
 
     useEffect(() => {
-        fetch(`http://localhost:5000/userReviews?email=${email}`)
-            .then(res => res.json())
+
+        fetch(`http://localhost:5000/userReviews?email=${email}`, {
+            headers: { token: localStorage.getItem('token') }
+        })
+            .then(res => {
+                console.log(res)
+                if (res.status === 401 || res.status === 403) {
+                    setJwtMessage('Unauthorized User Access');
+                }
+                return res.json()
+            })
             .then(data => {
                 setReviews(data)
             })
@@ -48,7 +60,7 @@ const UserReviews = () => {
             </Helmet>
 
             {
-                reviews.length > 0 ?
+                reviews?.length > 0 ?
                     <>
                         <h1 className='text-center text-4xl my-10 font-bold'>My Reviews</h1>
                         <div className='grid grid-cols-1 lg:grid-cols-2'>
@@ -63,7 +75,11 @@ const UserReviews = () => {
                     </>
 
                     :
-                    <h1 className='text-5xl text-center mt-10'>Now Review added this user.</h1>
+                    <>
+
+                        <h1 className='text-center text-3xl text-red-600 font-bold mt-6'>{jwtMessage && jwtMessage}</h1>
+                        <h1 className='text-5xl text-center mt-10'>Now Review added by this user.</h1>
+                    </>
             }
 
 
