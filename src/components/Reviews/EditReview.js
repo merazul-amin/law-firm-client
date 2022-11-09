@@ -51,7 +51,6 @@ const EditReview = () => {
 
     return (
         <div>
-
             <form onSubmit={handleSubmit} className='shadow-lg border w-[90%] mx-auto my-10 p-6 rounded'>
                 <h1 className='text-center text-3xl font-bold'>Edit Your Review Review</h1>
 
