@@ -4,8 +4,9 @@ import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
 
-const AddReview = ({ service }) => {
+const AddReview = ({ service, reload }) => {
     const { _id } = service;
+    const { reloadReviews, setReloadReviews } = reload;
 
     const { user } = useContext(AuthContext);
     const userName = user?.displayName;
@@ -19,6 +20,8 @@ const AddReview = ({ service }) => {
         const name = form.name.value;
         const img = form.img.value;
         const reviewText = form.review.value;
+        const date = new Date();
+
 
         //now set this review in db with servicer id
         const review = {
@@ -26,7 +29,8 @@ const AddReview = ({ service }) => {
             name,
             reviewText,
             img,
-            serviceId: _id
+            serviceId: _id,
+            time: date.toLocaleString()
         }
 
         fetch(`http://localhost:5000/setReview`, {
@@ -39,6 +43,7 @@ const AddReview = ({ service }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
+                    setReloadReviews(!reloadReviews);
                     swal("Review Saved!", "!", "success");
                 }
             })

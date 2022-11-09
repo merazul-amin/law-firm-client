@@ -9,6 +9,9 @@ const UserReviews = () => {
     const name = user?.displayName;
     const email = user?.email;
     const userImg = user?.photoURL;
+
+
+    //this state for reload useEffect after delete a review.
     const [reload, setReload] = useState(false);
 
     //now get user reviews

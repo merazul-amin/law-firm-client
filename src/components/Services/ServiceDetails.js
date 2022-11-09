@@ -7,13 +7,15 @@ import ServiceDetailsTemplete from './ServiceDetailsTemplete';
 
 const ServiceDetails = () => {
     const service = useLoaderData();
+
     const [reviews, setReviews] = useState([]);
+    const [reloadReviews, setReloadReviews] = useState(false);
 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews/${service?._id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [service]);
+    }, [service, reloadReviews]);
 
     return (
         <div>
@@ -44,7 +46,7 @@ const ServiceDetails = () => {
 
             {/* Add Review Section */}
             <div>
-                <AddReview service={service}></AddReview>
+                <AddReview reload={{ reloadReviews, setReloadReviews }} service={service}></AddReview>
             </div>
         </div>
     );

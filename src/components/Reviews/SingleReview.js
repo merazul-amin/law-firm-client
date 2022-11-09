@@ -2,7 +2,7 @@ import React from 'react';
 
 const SingleReview = ({ review, children }) => {
 
-    const { img, email, name, reviewText } = review;
+    const { img, email, name, reviewText, time } = review;
     return (
         <div className='w-[90%] mx-auto'>
 
@@ -63,7 +63,7 @@ const SingleReview = ({ review, children }) => {
 
                         </div>
                         <div className="w-full md:w-1/3 text-right">
-                            <p className="mb-8 text-sm text-gray-300">Added 2 months ago</p>
+                            <p className="mb-8 text-sm text-black text-center">Time of Review <br /> {time} </p>
 
                         </div>
                     </div>

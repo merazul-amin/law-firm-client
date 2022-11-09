@@ -7,6 +7,7 @@ import UserReviews from "../components/Reviews/UserReviews";
 import AddService from "../components/Services/AddService";
 import AllServices from "../components/Services/AllServices";
 import ServiceDetails from "../components/Services/ServiceDetails";
+import ErrorPage from "../components/SharedPages/ErrorPage/ErrorPage";
 import Layout from "../Layout/Layout";
 import PrivateRoute from "./PrivateRoute";
 
@@ -14,6 +15,7 @@ const routes = createBrowserRouter([
     {
         path: '/',
         element: <Layout></Layout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             { path: '/', element: <Home></Home> },
             { path: '/login', element: <LogIn></LogIn> },

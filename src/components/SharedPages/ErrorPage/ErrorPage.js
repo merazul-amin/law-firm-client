@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 const ErrorPage = () => {
     return (
         <div>
-            <section className='d-flex align-items-center justify-content-center'>
+            <section className='flex align-middle justify-center'>
                 <div className=''>
                     <svg
                         xmlns='http://www.w3.org/2000/svg'
                         viewBox='0 0 512 512'
-                        className='w-40 h-40 text-gray-600'
+                        className='w-40 mx-auto h-40 text-gray-600'
                     >
                         <path
                             fill='currentColor'
