@@ -8,7 +8,9 @@ const Services = () => {
     useEffect(() => {
         fetch('http://localhost:5000/services?limit=3')
             .then(res => res.json())
-            .then(data => setServices(data))
+            .then(data => {
+                setServices(data)
+            })
     }, [])
     return (
         <div className='my-10'>
