@@ -27,7 +27,6 @@ const UserReviews = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.deletedCount === 1) {
                     setReload(!reload);
                     swal("Review Deleted", "!", "success");
