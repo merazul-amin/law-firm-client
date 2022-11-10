@@ -6,8 +6,6 @@ import { AuthContext } from '../contexts/UserContext/UserContext';
 const PrivateRoute = ({ children }) => {
     const location = useLocation();
     const { user, loading } = useContext(AuthContext);
-    const navigate = useNavigate();
-
     if (loading) {
         return <Spinner></Spinner>
     }

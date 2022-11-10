@@ -9,6 +9,7 @@ import Spinner from '../../SharedPages/Spinner/Spinner';
 const LogIn = () => {
     const { logIn, googleLogIn } = useContext(AuthContext);
     const location = useLocation();
+    const [logError, setLogError] = useState('');
     const from = location.state?.from?.pathname || '/';
     let navigate = useNavigate();
     const [display, setDisplay] = useState('hidden');
@@ -28,6 +29,7 @@ const LogIn = () => {
                 .then((userCredential) => {
                     // Signed in 
                     setDisplay('none');
+                    setLogError('');
                     const user = userCredential.user;
                     const email = { email: user.email };
 
@@ -48,6 +50,7 @@ const LogIn = () => {
                     navigate(from, { replace: true });
                 })
                 .catch((error) => {
+                    setLogError(`${error.message}`);
                     setDisplay('hidden');
                 });
         }
@@ -57,6 +60,7 @@ const LogIn = () => {
         googleLogIn()
             .then(res => {
                 setDisplay('hidden');
+                setLogError('');
                 const user = res.user;
                 const email = { email: user.email };
 
@@ -78,6 +82,7 @@ const LogIn = () => {
                 navigate(from, { replace: true });
             })
             .catch(err => {
+                setLogError(`${err.message}`);
                 setDisplay('hidden');
             })
     }
@@ -97,17 +102,16 @@ const LogIn = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input {...register('email')} type="text" placeholder="email" className="input input-bordered input-secondary w-full max-w-xs" />
+                                <input {...register('email')} type="text" placeholder="email" className="input input-bordered input-secondary md:w-[350px]" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input {...register('password')} type="password" placeholder="password" className="input input-bordered input-secondary w-full max-w-xs" />
+                                <input {...register('password')} type="password" placeholder="password" className="input input-bordered input-secondary" />
+                                <p className="text-red-600 font-bold">{logError && logError}</p>
                                 <label className="label">
                                     <p><small>New here? </small><Link to='/register' className="label-text-alt link link-hover underline text-blue-400 font-bold">Register</Link></p>
-
-
                                 </label>
                             </div>
                             <div className="form-control">

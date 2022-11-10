@@ -8,6 +8,7 @@ import Spinner from '../../SharedPages/Spinner/Spinner';
 const Register = () => {
     const { user, createUser, setUserInfo, setUpdateUser, updateUser } = useContext(AuthContext);
     const [display, setDisplay] = useState('hidden');
+    const [registerError, setRegisterError] = useState('');
     const navigate = useNavigate();
 
     const {
@@ -64,7 +65,7 @@ const Register = () => {
                 <Spinner></Spinner>
             </div>
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0  shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
                         {/* Name */}
@@ -72,7 +73,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input required {...register('name')} type="text" placeholder="Name" className="input input-bordered input-secondary w-full max-w-xs" />
+                            <input required {...register('name')} type="text" placeholder="Name" className="input input-bordered input-secondary " />
                         </div>
 
                         {/* Photo Url */}
@@ -81,7 +82,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input required {...register('photoUrl')} type="text" placeholder="photo url" className="input input-bordered input-secondary w-full max-w-xs" />
+                            <input required {...register('photoUrl')} type="text" placeholder="photo url" className="input input-bordered input-secondary md:w-[350px]" />
                         </div>
 
                         {/* email */}
@@ -90,7 +91,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input required {...register('email')} type="text" placeholder="email" className="input input-bordered input-secondary w-full max-w-xs" />
+                            <input required {...register('email')} type="text" placeholder="email" className="input input-bordered input-secondary " />
                         </div>
 
 
@@ -101,7 +102,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input required {...register('password')} type="password" placeholder="password" className="input input-bordered input-secondary w-full max-w-xs" />
+                            <input required {...register('password')} type="password" placeholder="password" className="input input-bordered input-secondary " />
                             <label className="label">
                                 <p><small>Already have an account? </small><Link to='/login' className="label-text-alt link link-hover text-blue-600 underline">Log In</Link></p>
                             </label>
