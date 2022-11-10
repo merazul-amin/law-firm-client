@@ -4,7 +4,7 @@ const Blogs = () => {
     return (
         <div className='w-[95%] mx-auto'>
             <Helmet>
-                <title>Blogs</title>
+                <title>Blogs- Law Firm</title>
             </Helmet>
             {/* Question 1 */}
             <div className='my-4'>

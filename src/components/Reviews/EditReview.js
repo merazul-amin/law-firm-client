@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Helmet } from 'react-helmet';
 import { Navigate, useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/UserContext/UserContext';
@@ -55,6 +56,9 @@ const EditReview = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Edit Review- Law Firm</title>
+            </Helmet>
             <form onSubmit={handleSubmit} className='shadow-lg border w-[90%] mx-auto my-10 p-6 rounded'>
                 <h1 className='text-center text-3xl font-bold'>Edit Your Review Review</h1>
 

@@ -25,6 +25,7 @@ const Register = () => {
         createUser(email, password)
             .then(res => {
                 setDisplay('hidden');
+                setRegisterError('');
                 const user = res.user;
                 setUserInfo(name, photoUrl)
                     .then(() => {
@@ -47,19 +48,21 @@ const Register = () => {
                                 localStorage.setItem('token', data.token);
                             })
                     }).catch((error) => {
+                        setRegisterError(error?.message);
                         setDisplay('hidden');
                     });
 
             })
             .catch(err => {
                 setDisplay('hidden');
+                setRegisterError(err?.message);
             })
     }
 
     return (
         <div className="hero">
             <Helmet>
-                <title>Register</title>
+                <title>Register- Law Firm</title>
             </Helmet>
             <div className={`absolute w-[100%] z-10 ${display}  justify-center align-middle`}>
                 <Spinner></Spinner>
@@ -103,6 +106,9 @@ const Register = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input required {...register('password')} type="password" placeholder="password" className="input input-bordered input-secondary " />
+                            <p>
+                                {registerError && registerError}
+                            </p>
                             <label className="label">
                                 <p><small>Already have an account? </small><Link to='/login' className="label-text-alt link link-hover text-blue-600 underline">Log In</Link></p>
                             </label>

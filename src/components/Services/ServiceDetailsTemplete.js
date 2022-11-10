@@ -1,10 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { HiArrowNarrowRight, HiStar } from "react-icons/hi";
 
 const ServiceDetailsTemplete = ({ service }) => {
-    console.log(service);
+    const pathName = window.location.pathname;
     return (
         <div className='my-10 w-[90%] mx-auto'>
+
+            {
+                pathName === `/services/${service._id}` && <Helmet> <title>{service.name}- Law Firm</title> </Helmet>
+            }
+
             <div className='lg:flex shadow-xl rounded-md p-4'>
                 {/* left side */}
                 <div className='lg:w-[40%] '>
@@ -59,7 +65,7 @@ const ServiceDetailsTemplete = ({ service }) => {
                         <h1 className='text-3xl text-pink-600 font-bold my-3'>My goal for a my client.</h1>
                         <ul className='w-[100%] md:w-[50%] mx-auto text-justify'>
                             {
-                                service.duties.map(duty => <li> <HiArrowNarrowRight className='inline text-xl'></HiArrowNarrowRight>  {duty}</li>)
+                                service.duties.map((duty, index) => <li key={index}> <HiArrowNarrowRight className='inline text-xl'></HiArrowNarrowRight>  {duty}</li>)
                             }
                         </ul>
                     </>

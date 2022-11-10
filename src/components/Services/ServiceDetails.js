@@ -17,6 +17,7 @@ const ServiceDetails = () => {
             .then(data => setReviews(data))
     }, [service, reloadReviews]);
 
+
     return (
         <div>
             {/* Service Details */}

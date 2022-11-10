@@ -63,7 +63,7 @@ const UserReviews = () => {
     return (
         <div className='mb-96'>
             <Helmet>
-                <title>My Reviews</title>
+                <title>My Reviews- Law Firm</title>
             </Helmet>
 
             {

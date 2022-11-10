@@ -5,6 +5,7 @@ import { AuthContext } from '../../../contexts/UserContext/UserContext';
 import { toast } from 'react-toastify';
 import { FaGoogle } from "react-icons/fa";
 import Spinner from '../../SharedPages/Spinner/Spinner';
+import { Helmet } from "react-helmet";
 
 const LogIn = () => {
     const { logIn, googleLogIn } = useContext(AuthContext);
@@ -90,6 +91,9 @@ const LogIn = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Login- Law Firm</title>
+            </Helmet>
             <div className={`absolute w-[100%] z-10 ${display}  justify-center align-middle`}>
                 <Spinner></Spinner>
             </div>

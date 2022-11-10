@@ -19,7 +19,7 @@ const AllServices = () => {
     return (
         <div>
             <Helmet>
-                <title>Home and Services</title>
+                <title>Services- Law Firm</title>
             </Helmet>
             <h1 className='text-5xl text-center my-4'>All Services</h1>
             {

@@ -41,7 +41,7 @@ const AddService = () => {
     return (
         <div>
             <Helmet>
-                <title>Add Service</title>
+                <title>Add Service- Law Firm</title>
             </Helmet>
 
             <form onSubmit={handleSubmit} className='w-[95%] md:w-[50%] mx-auto border text-center my-10 shadow-lg p-4 rounded-xl'>
