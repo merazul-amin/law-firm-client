@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Navigate, useLoaderData } from 'react-router-dom';
-import swal from 'sweetalert';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/UserContext/UserContext';
 
 const EditReview = () => {
@@ -32,6 +32,11 @@ const EditReview = () => {
             time: date.toLocaleString()
         }
 
+        const agree = window.confirm('Submit Changes??');
+        if (!agree) {
+            return;
+        }
+
         fetch(`https://assignment-11-server-khaki.vercel.app/updateReview/${_id}`, {
             method: 'PUT',
             headers: {
@@ -42,9 +47,8 @@ const EditReview = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    swal("Review Edited!", "!", "success");
+                    toast.success('Review Edited Successfully.')
                     form.reset();
-
                 }
             })
     }

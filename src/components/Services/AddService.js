@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from "react-helmet";
-import swal from 'sweetalert';
+import { toast } from 'react-toastify';
 
 const AddService = () => {
     const handleSubmit = (e) => {
@@ -33,7 +33,7 @@ const AddService = () => {
             .then(data => {
                 console.log(data);
                 if (data.acknowledged) {
-                    swal("Service Added!", "!", "success");
+                    toast.success('Service Added.');
                 }
             })
     }

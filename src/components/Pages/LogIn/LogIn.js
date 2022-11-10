@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
-import swal from 'sweetalert';
-import { FaGoogle, IconName } from "react-icons/fa";
+import { toast } from 'react-toastify';
+import { FaGoogle } from "react-icons/fa";
 import Spinner from '../../SharedPages/Spinner/Spinner';
 
 const LogIn = () => {
@@ -44,9 +44,8 @@ const LogIn = () => {
                             localStorage.setItem('token', data.token);
                         })
 
+                    toast.success('Log In Successful.');
                     navigate(from, { replace: true });
-                    swal("Logged In!", "!", "success");
-
                 })
                 .catch((error) => {
                     setDisplay('hidden');
@@ -74,6 +73,9 @@ const LogIn = () => {
                     .then(data => {
                         localStorage.setItem('token', data.token);
                     })
+
+                toast.success('Log In Successful.');
+                navigate(from, { replace: true });
             })
             .catch(err => {
                 setDisplay('hidden');
@@ -103,7 +105,7 @@ const LogIn = () => {
                                 </label>
                                 <input {...register('password')} type="password" placeholder="password" className="input input-bordered input-secondary w-full max-w-xs" />
                                 <label className="label">
-                                    <p><small>New here? </small><Link to='/register' className="label-text-alt link link-hover">Register</Link></p>
+                                    <p><small>New here? </small><Link to='/register' className="label-text-alt link link-hover underline text-blue-400 font-bold">Register</Link></p>
 
 
                                 </label>

@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
 import { Helmet } from "react-helmet";
+import { toast } from 'react-toastify';
 import Spinner from '../../SharedPages/Spinner/Spinner';
 const Register = () => {
     const { user, createUser, setUserInfo, setUpdateUser, updateUser } = useContext(AuthContext);
     const [display, setDisplay] = useState('hidden');
+    const navigate = useNavigate();
 
     const {
         register,
@@ -26,7 +28,8 @@ const Register = () => {
                 setUserInfo(name, photoUrl)
                     .then(() => {
                         setUpdateUser(!updateUser)
-
+                        toast.success(`Welcome ${name}`);
+                        navigate('/');
                         //set jwt token in register
                         const email = { email: user.email };
 
@@ -100,7 +103,7 @@ const Register = () => {
                             </label>
                             <input required {...register('password')} type="password" placeholder="password" className="input input-bordered input-secondary w-full max-w-xs" />
                             <label className="label">
-                                <p><small>Already have an account? </small><Link to='/login' className="label-text-alt link link-hover">Register</Link></p>
+                                <p><small>Already have an account? </small><Link to='/login' className="label-text-alt link link-hover text-blue-600 underline">Log In</Link></p>
                             </label>
                         </div>
                         <div className="form-control">

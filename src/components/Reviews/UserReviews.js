@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/UserContext/UserContext';
 import SingleReview from './SingleReview';
 import { Helmet } from "react-helmet";
-import swal from 'sweetalert';
+import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 const UserReviews = () => {
     const { user } = useContext(AuthContext);
@@ -40,16 +40,22 @@ const UserReviews = () => {
 
 
     const handleDelete = (id) => {
-        fetch(`https://assignment-11-server-khaki.vercel.app/userReviews/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount === 1) {
-                    setReload(!reload);
-                    swal("Review Deleted", "!", "success");
-                }
+        const agree = window.confirm('Are You Sure?');
+        if (agree) {
+            fetch(`https://assignment-11-server-khaki.vercel.app/userReviews/${id}`, {
+                method: 'DELETE'
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount === 1) {
+                        setReload(!reload);
+
+                        toast.error('Review Deleted.', {
+                            theme: "colored",
+                        });
+                    }
+                })
+        };
     }
 
 

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/UserContext/UserContext';
-import swal from 'sweetalert';
+import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 
 const AddReview = ({ service, reload }) => {
@@ -44,7 +44,7 @@ const AddReview = ({ service, reload }) => {
             .then(data => {
                 if (data.acknowledged) {
                     setReloadReviews(!reloadReviews);
-                    swal("Review Saved!", "!", "success");
+                    toast.success('Review Saved');
                 }
             })
     }
