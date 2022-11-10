@@ -30,7 +30,7 @@ const AddReview = ({ service, reload }) => {
             reviewText,
             img,
             serviceId: _id,
-            time: date.toLocaleString()
+            time: date
         }
 
         fetch(`https://assignment-11-server-khaki.vercel.app/setReview`, {
@@ -44,6 +44,7 @@ const AddReview = ({ service, reload }) => {
             .then(data => {
                 if (data.acknowledged) {
                     setReloadReviews(!reloadReviews);
+                    form.reset();
                     toast.success('Review Saved');
                 }
             })

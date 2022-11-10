@@ -16,7 +16,7 @@ const AddService = () => {
             price: `$${price}`,
             img,
             info,
-            time: date.toLocaleString()
+            time: date
         }
 
 
@@ -31,9 +31,9 @@ const AddService = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.acknowledged) {
                     toast.success('Service Added.');
+                    form.reset();
                 }
             })
     }
