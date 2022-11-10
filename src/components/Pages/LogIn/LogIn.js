@@ -32,7 +32,7 @@ const LogIn = () => {
                     const email = { email: user.email };
 
                     //handle jwt token 
-                    fetch('http://localhost:5000/jwt', {
+                    fetch('https://assignment-11-server-khaki.vercel.app/jwt', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -63,7 +63,7 @@ const LogIn = () => {
 
                 //handle jwt token 
 
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://assignment-11-server-khaki.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

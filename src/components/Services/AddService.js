@@ -22,7 +22,7 @@ const AddService = () => {
 
         // set the service in db by post method.
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://assignment-11-server-khaki.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

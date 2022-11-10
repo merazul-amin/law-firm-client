@@ -25,7 +25,7 @@ const routes = createBrowserRouter([
             {
                 path: '/services/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-khaki.vercel.app/services/${params.id}`)
             },
             { path: '/blogs', element: <Blogs></Blogs> },
             { path: '/userReviews', element: <PrivateRoute><UserReviews></UserReviews></PrivateRoute> },
@@ -33,7 +33,7 @@ const routes = createBrowserRouter([
             {
                 path: '/editReview/:id',
                 element: <EditReview></EditReview>,
-                loader: ({ params }) => fetch(`http://localhost:5000/editReview/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-khaki.vercel.app/editReview/${params.id}`)
             }
         ]
     }

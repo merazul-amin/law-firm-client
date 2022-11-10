@@ -33,7 +33,7 @@ const AddReview = ({ service, reload }) => {
             time: date.toLocaleString()
         }
 
-        fetch(`http://localhost:5000/setReview`, {
+        fetch(`https://assignment-11-server-khaki.vercel.app/setReview`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -12,7 +12,7 @@ const ServiceDetails = () => {
     const [reloadReviews, setReloadReviews] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${service?._id}`)
+        fetch(`https://assignment-11-server-khaki.vercel.app/reviews/${service?._id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [service, reloadReviews]);

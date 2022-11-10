@@ -32,7 +32,7 @@ const EditReview = () => {
             time: date.toLocaleString()
         }
 
-        fetch(`http://localhost:5000/updateReview/${_id}`, {
+        fetch(`https://assignment-11-server-khaki.vercel.app/updateReview/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

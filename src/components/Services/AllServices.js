@@ -6,7 +6,7 @@ const AllServices = () => {
     const [services, setServices] = useState([]);
     const [loadingServices, setLoadingServices] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://assignment-11-server-khaki.vercel.app/services')
             .then(res => res.json())
             .then(data => {
                 setServices(data)

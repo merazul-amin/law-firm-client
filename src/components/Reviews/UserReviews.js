@@ -22,7 +22,7 @@ const UserReviews = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/userReviews?email=${email}`, {
+        fetch(`https://assignment-11-server-khaki.vercel.app/userReviews?email=${email}`, {
             headers: { token: localStorage.getItem('token') }
         })
             .then(res => {
@@ -40,7 +40,7 @@ const UserReviews = () => {
 
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/userReviews/${id}`, {
+        fetch(`https://assignment-11-server-khaki.vercel.app/userReviews/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

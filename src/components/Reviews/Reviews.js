@@ -10,7 +10,7 @@ const Reviews = () => {
     const userImg = user?.photoURL;
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://assignment-11-server-khaki.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
