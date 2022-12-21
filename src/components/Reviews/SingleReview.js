@@ -5,7 +5,7 @@ const SingleReview = ({ review, children }) => {
 
     const { img, email, name, reviewText, time } = review;
     const entryTime = new Date(time).toLocaleTimeString();
-    const date = new Date(time).toLocaleDateString();
+    const date = new Date(time).toDateString();
     console.log(entryTime, typeof entryTime, date);
     return (
         <div className='w-[90%] mx-auto'>
@@ -67,7 +67,7 @@ const SingleReview = ({ review, children }) => {
 
                         </div>
                         <div className="w-full md:w-1/3 text-right">
-                            <p className="mb-8 text-sm text-black text-center">Time of Review <br /> {entryTime} {date} </p>
+                            <p className="mb-8 text-sm text-black text-center">Time of Review <br /> {entryTime} , {date} </p>
                             {/* {format(time, 'Pp')} */}
 
                         </div>

@@ -119,6 +119,7 @@ const LogIn = () => {
                                 </label>
                             </div>
                             <div className="form-control">
+                                {/* Spinner added */}
                                 <button type='submit' className="btn btn-primary">Login</button>
 
                                 <button onClick={handleGoogleLogIn} className="btn btn-success my-3">
