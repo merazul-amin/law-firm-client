@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import ContactMe from "../components/ContactMe/ContactMe";
 import Blogs from "../components/Pages/Blogs/Blogs";
 import Home from "../components/Pages/Home/Home";
 import LogIn from "../components/Pages/LogIn/LogIn";
@@ -29,7 +30,7 @@ const routes = createBrowserRouter([
             },
             { path: '/blogs', element: <Blogs></Blogs> },
             { path: '/userReviews', element: <PrivateRoute><UserReviews></UserReviews></PrivateRoute> },
-            { path: '/addService', element: <PrivateRoute><AddService></AddService></PrivateRoute> },
+            { path: '/contactMe', element: <ContactMe></ContactMe> },
             {
                 path: '/editReview/:id',
                 element: <EditReview></EditReview>,
